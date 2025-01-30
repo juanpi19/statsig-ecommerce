@@ -39,9 +39,3 @@ jobs:
       run: |
         echo "No tests defined. Add your test suite here."
 
-    # Deploy Streamlit (Optional: Use Streamlit Community Cloud or other platforms)
-    - name: Deploy Streamlit App
-      env:
-        STREAMLIT_SECRET: ${{ secrets.STREAMLIT_SECRET }}  # Example for deployment
-      run: |
-        streamlit run ecommerce.py
