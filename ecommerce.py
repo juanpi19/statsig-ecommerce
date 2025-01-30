@@ -66,7 +66,7 @@ for idx, product in enumerate(products):
         img = Image.open(product['image'])
         img = img.resize((500, 500))
 
-        st.image(img, caption=product['name'], use_column_width=True)
+        st.image(img, caption=product['name'])
         st.write(f"${product['price']:.2f}")
         st.write(product["description"])
         
