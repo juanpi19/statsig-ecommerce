@@ -1,0 +1,42 @@
+name: CI/CD Pipeline for Streamlit App
+
+on:
+  push:
+    branches:
+      - main  # Run the pipeline on pushes to the main branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    # Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9  # Match your Python version
+
+    # Install dependencies
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Run tests (Optional: Add tests if you have them)
+    - name: Run Tests
+      run: |
+        echo "No tests defined. Add your test suite here."
+
+    # Deploy Streamlit (Optional: Use Streamlit Community Cloud or other platforms)
+    - name: Deploy Streamlit App
+      env:
+        STREAMLIT_SECRET: ${{ secrets.STREAMLIT_SECRET }}  # Example for deployment
+      run: |
+        streamlit run ecommerce.py
