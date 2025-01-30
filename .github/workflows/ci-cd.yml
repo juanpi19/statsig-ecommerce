@@ -21,7 +21,13 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.9  # Match your Python version
+        python-version: 3.11.5  # Match your Python version
+
+        # Step 3: Create and activate a virtual environment
+    - name: Create and Activate Virtual Environment
+      run: |
+        python -m venv .venv  # Create a virtual environment
+        source .venv/bin/activate  # Activate the virtual environment
 
     # Install dependencies
     - name: Install Dependencies
