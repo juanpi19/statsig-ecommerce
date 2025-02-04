@@ -7,7 +7,10 @@ charset-normalizer==3.4.1
 click==8.1.8
 gitdb==4.0.12
 GitPython==3.1.44
+grpcio==1.70.0
 idna==3.10
+ijson==3.3.0
+ip3country==0.3.0
 Jinja2==3.1.5
 jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
@@ -31,10 +34,13 @@ rich==13.9.4
 rpds-py==0.22.3
 six==1.17.0
 smmap==5.0.2
+statsig==0.55.2
 streamlit==1.41.1
 tenacity==9.0.0
 toml==0.10.2
 tornado==6.4.2
 typing_extensions==4.12.2
 tzdata==2025.1
+ua-parser==1.0.1
+ua-parser-builtins==0.18.0.post1
 urllib3==2.3.0
