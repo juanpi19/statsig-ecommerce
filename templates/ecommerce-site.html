@@ -71,7 +71,10 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/statsig-js/build/statsig-prod-web-sdk.min.js"></script>
-    <script src="{{ url_for('static', filename='config.js') }}"></script>
+    <script>
+         const STATSIG_CLIENT_KEY = "{{ statsig_key }}";
+         console.log(STATSIG_CLIENT_KEY);
+    </script>
 
     <script>
 
