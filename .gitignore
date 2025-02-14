@@ -1,2 +1,6 @@
 /.venv
 __pycache__/
+/ecommerce.py
+node_modules
+*.js
+.env
