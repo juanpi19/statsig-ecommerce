@@ -72,7 +72,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/statsig-js/build/statsig-prod-web-sdk.min.js"></script>
     <script>
-         const STATSIG_CLIENT_KEY = "{{ statsig_key }}";
+         // const STATSIG_CLIENT_KEY = "{{ statsig_key }}";
+         async function getStatsigKey() {
+            try {
+                const response = await fetch('/get-statsig-key');
+                const data = await response.json();
+                return data.key;
+            } catch (error) {
+                console.error('Error fetching Statsig key:', error);
+                return null;
+            }
+        }
     </script>
 
     <script>
@@ -91,6 +101,7 @@
         window.onload = async function() {
             const user_id = crypto.randomUUID();
             document.cookie = `user_id=${user_id}`;
+            const STATSIG_CLIENT_KEY = await getStatsigKey();
             
             // Initialize statsig and wait for it to complete
             await statsig.initialize(STATSIG_CLIENT_KEY, {
