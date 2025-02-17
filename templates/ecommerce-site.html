@@ -79,9 +79,7 @@
     <script>
 
         function render() {
-            // Use the global statsig object instead of myStatsigClient
-            const text_to_show = statsig.getExperiment("cta_button_variations").get("text_to_show", "Add to Cart"); 
-     
+            const text_to_show = statsig.getExperiment("button_text_variation").get("text_to_show", "Add to Cart"); 
 
             // Loop through all buttons with the class "add-to-cart-btn"
             const buttons = document.getElementsByClassName("add-to-cart-btn");
