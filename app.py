@@ -30,13 +30,18 @@ def get_experiment_value():
 def log_event():
     try:
         data = request.json
-        user_id = str(uuid.uuid4())
+        # Get the user_id from the request headers instead of generating a new one
+        user_id = request.headers.get('X-User-ID')
+        
+        if not user_id:
+            return jsonify({'error': 'Missing user ID'}), 400
+            
         user = StatsigUser(user_id)
         
         # Log the event to Statsig
         statsig.log_event(
             user=user,
-            event_name=data.get('event_name', 'button_clicked'),
+            event_name=data.get('eventName', 'button_clicked'),  # Match the client-side property name
             value=None,
             metadata=data.get('metadata', {})
         )
